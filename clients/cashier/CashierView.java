@@ -59,14 +59,18 @@ public class CashierView implements Observer
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
     rootWindow.setLocation( x, y );
+    theBtCheck.setBounds(16, 25 + 60 * 0, 80, 40);   // Check Button
+    theBtCheck.addActionListener(                   // Call back code
+            e -> cont.doCheck(theInput.getText()));
+    cp.add(theBtCheck);                           //  Add to canvas
+    theBtCheck.setOpaque(true);
+    theBtCheck.setBackground(Color.YELLOW); // Change background color to yellow
+    theBtCheck.setBorderPainted(false);
 
     Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
-    theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check Button
-    theBtCheck.addActionListener(                   // Call back code
-      e -> cont.doCheck( theInput.getText() ) );
-    cp.add( theBtCheck );                           //  Add to canvas
-
+   
+    
     theBtBuy.setBounds( 16, 25+60*1, 80, 40 );      // Buy button 
     theBtBuy.addActionListener(                     // Call back code
       e -> cont.doBuy() );
